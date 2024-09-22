@@ -1,0 +1,16 @@
+<li>
+  <div class="tag">
+    @if (node?.children && node?.children?.length) {
+      <i nz-icon [nzType]="node?.show ? 'up' : 'down'" nzTheme="outline" (click)="onToggleNode(node)" class="icon-cc"></i>
+    } @else {
+      <i class="gap"></i>
+    }
+    <label nz-checkbox [(ngModel)]="node!.check">{{ node?.name }}</label>
+    <!-- <span>{{ node?.name }}</span> -->
+  </div>
+  @if (node?.children && node?.children?.length && node?.show) {
+    @for (item of node?.children; track $index) {
+      <app-tree-node [node]="item"></app-tree-node>
+    }
+  }
+</li>

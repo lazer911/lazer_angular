@@ -1,0 +1,7 @@
+<ul>
+  @if (TreeData && TreeData.length) {
+    @for (item of TreeData; track $index) {
+      <app-tree-node [node]="item" (toggleNode)="onElevateNode($event)"></app-tree-node>
+    }
+  }
+</ul>
